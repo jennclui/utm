@@ -16,6 +16,12 @@ h2 {
     margin-top: 0px;
 }
 
+p.small-text {
+    font-size: 0.8em;
+    color: grey;
+    margin-bottom: 40px;
+}
+
 .container {
     background: white;
     display: flex;
@@ -57,6 +63,12 @@ input {
     border: none;
     border-bottom: 1px solid #C2C2C2;
     padding: 10px;
+}
+
+input.sub-text {
+    padding-bottom: 0px!important; 
+    margin-bottom: 0px!important; 
+    display: inline-block;
 }
 
 textarea {
