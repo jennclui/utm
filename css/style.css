@@ -22,6 +22,11 @@ p.small-text {
     margin-bottom: 40px;
 }
 
+p.locked {
+    color: #025475;
+    display: inline ;
+}
+
 .container {
     background: white;
     display: flex;
@@ -119,4 +124,10 @@ button#btnClear {
 }
 button#btnClear:hover {
     background: #7f8c8d;
+}
+
+
+img.lock {
+    width: 10px;
+    margin-right: 4px;
 }
