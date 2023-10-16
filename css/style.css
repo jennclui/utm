@@ -1,0 +1,110 @@
+body {
+    background-image: url(img/bg-img.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: 'Barlow', sans-serif;
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.container {
+    background: white;
+    display: flex;
+    max-width: 950px;
+    margin: 50px auto;
+}
+
+.flex-child {
+    flex: 1;
+    padding: 20px;
+}  
+
+.flex-child:first-child {
+    margin-right: 20px;
+} 
+
+.parent {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
+}
+
+.flex-utm1, .flex-utm2{
+    color: white;
+}
+
+.flex-utm1 p, .flex-utm2 p {
+    margin: 0px; 
+    padding: 0px; 
+}
+
+.blue {
+    background-color: #2CA5D8;
+}
+
+input {
+    margin:4px 0px 40px 0px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #C2C2C2;
+    padding: 10px;
+}
+
+textarea {
+    margin-top: 6px;
+    border: 1px solid #C2C2C2;
+}
+
+label {
+    color: #24A0D5;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+select {
+    margin: 8px 0px 20px 0px;
+    background: white;
+    border: solid 1px #C2C2C2;
+    padding: 10px;
+    width: 100%;
+}
+
+option {
+    color: red;
+}
+
+button {
+    padding: 10px;
+    color: white;
+    text-transform: uppercase;
+    background-color: #2CA5D8;
+    border: none;
+}
+
+button:hover  {
+    background-color: #15749c;
+}
+
+button#btnCopy {
+    background-color: #2ecc71;
+}
+button#btnCopy:hover {
+    background-color: #27ae60;
+}
+
+button#btnClear {
+    margin-left: 30px;
+    background: #95a5a6;
+}
+button#btnClear:hover {
+    background: #7f8c8d;
+}
