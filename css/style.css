@@ -131,3 +131,12 @@ img.lock {
     width: 10px;
     margin-right: 4px;
 }
+
+img.tooltip {
+    width: 14px; 
+    margin-left: 6px; 
+    opacity: 30%;
+}
+img.tooltip:hover { 
+    opacity: 50%;
+}
