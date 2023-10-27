@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>UTM Builder - Affiliate</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="affiliate">
+
+    <div class="container">
+        <div class="flex-child">
+            <h2>Affiliate utm builder</h2>
+            <form id="utmBuilder">
+                <label for="program">Select program</label><br>
+                <select oninput="getProgram(this)" name="campProgram" id="campProgram">
+                    <option value="x">Select program from dropdown</option>
+                    <option value="business+analysis">Business Analysis</option>
+                    <option value="business+communication">Business Communication</option>
+                    <option value="business+management">Business Management</option>
+                    <option value="career+practitioner">Career Practitioner</option>
+                    <option value="chinese+translation">Chinese Translation</option>
+                    <option value="city">City</option>
+                    <option value="climate">Climate</option>
+                    <option value="communication">Communication</option>
+                    <option value="community+building">Community Building</option>
+                    <option value="community+data+science">Community Data Science</option>
+                    <option value="creative+writing">Creative Writing</option>
+                    <option value="cs+wide">CS wide</option>
+                    <option value="dialogue">Dialogue</option>
+                    <option value="editing">Editing</option>
+                    <option value="english+learning+centre">English Learning Centre</option>
+                    <option value="evaluation">Evaluation</option>
+                    <option value="executive+leadership">Executive Leadership</option>
+                    <option value="first+responders">First Responders</option>
+                    <option value="future+skills+grant">Future Skills Grant</option>
+                    <option value="hr+management">HR Management</option>
+                    <option value="interpretation+and+translation+program">Interpretation and Translation Program
+                    </option>
+                    <option value="japanese+translation">Japanese Translation</option>
+                    <option value="leadership+essentials">Leadership Essentials</option>
+                    <option value="legal+interpretation+and+translation+program">Legal Interpretation and Translation
+                        Program</option>
+                    <option value="liberal+arts">Liberal Arts</option>
+                    <option value="liberal+arts+and+55+plus">Liberal Arts and 55 Plus</option>
+                    <option value="medical+translation+and+interpretation+program">Medical Translation and
+                        Interpretation
+                        Program</option>
+                    <option value="non-profit+management">Non-Profit Management</option>
+                    <option value="non-profit+management+bc">Non-Profit Management BC</option>
+                    <option value="non-profit+management+canada">Non-Profit Management Canada</option>
+                    <option value="plain+language">Plain Language</option>
+                    <option value="project+management">Project Management</option>
+                    <option value="public+companies">Public Companies</option>
+                    <option value="rehabilitation">Rehabilitation</option>
+                    <option value="restorative+justice">Restorative Justice</option>
+                    <option value="restorative+justice+bc">Restorative Justice BC</option>
+                    <option value="restorative+justice+canada">Restorative Justice Canada</option>
+                    <option value="restorative+justice+ontario">Restorative Justice Ontario</option>
+                    <option value="restorative+justice+us">Restorative Justice US</option>
+                    <option value="risk+management">Risk Management</option>
+                    <option value="seniors">Seniors</option>
+                    <option value="simultaneous+interpretation+and+translation+program">Simultaneous Interpretation and
+                        Translation Program</option>
+                    <option value="social+innovationn">Social Innovationn</option>
+                    <option value="technical+communication">Technical Communication</option>
+                    <option value="technical+communication+bc">Technical Communication BC</option>
+                    <option value="technical+communication+canada">Technical Communication Canada</option>
+                    <option value="urban+design">Urban Design</option>
+                    <option value="vocational+rehabilitation+and+disability+management">Vocational Rehabilitation and
+                        Disability Management</option>
+                </select><br><br>
+                <label for="date">Deployment date</label><br>
+                <input oninput="getDate(this)" type="date" id="campDate" name="camp-date" value="date"
+                    class="sub-text" /><br>
+                <p class="small-text">Click calendar icon to the right for date picker.</p>
+                <label for="source">Affiliate Source</label><br>
+                <select oninput="getSource(this)" name="campSource" id="campSource">
+                    <option value="x">Select affiliate from dropdown</option>
+                    <option value="apsa">apsa</option>
+                    <option value="bc-counsellors">bc-counsellors.org</option>
+                    <option value="blueline">blue line</option>
+                    <option value="bcbusiness">bcbusiness.ca</option>
+                    <option value="burnaby+bot">burnaby bot</option>
+                    <option value="campaigner">campaigner</option>
+                    <option value="canadian+evaluation+society">canadian evaluation society</option>
+                    <option value="canadian+firefighter">canadian firefighter</option>
+                    <option value="cannexus">Cannexus Conference</option>
+                    <option value="sfu+canvas">canvas.sfu.ca</option>
+                    <option value="cphr">cphr eblast</option>
+                    <option value="cphr">cphr</option>
+                    <option value="eventbrite">eventbrite</option>
+                    <option value="sfu+events">events.sfu.ca</option>
+                    <option value="blueline+forums">forums.blueline.ca</option>
+                    <option value="postcard">postcard</option>
+                    <option value="postcard+swag">postcard swag</option>
+                    <option value="push+festival">push</option>
+                    <option value="sera">sera</option>
+                    <option value="sfu+alumni">sfu alumni</option>
+                    <option value="sfu+mail">sfu mail</option>
+                    <option value="sfu+partners+email">sfu partners email</option>
+                    <option value="stockwatch">stockwatch</option>
+                    <option value="straight">straight.com</option>
+                    <option value="swag">swag</option>
+                    <option value="thetyee">thetyee.ca</option>
+                    <option value="viewbook">viewbook</option>
+                </select><br><br>
+                <label for="subject">Affiliate campaign subject</label><br>
+                <input oninput="getSubject(this)" type="text" id="campSubject" name="campSubject" class="sub-text"><br>
+                <p class="small-text">No accented vowels. Replace with non-accented equivalent.</p>
+                <label for="url" id="labelUrl">URL to be shared</label><br>
+                <textarea oninput="getUrl(this)" id="campUrl" name="campUrl" rows="4" cols="50"></textarea><br><br>
+            </form>
+
+            <button onclick="getTracking()">Generate UTM</button>
+            <button onclick="getTrackingUrl()">Generate URL & UTM</button>
+            <button id="btnClear" type="button" onClick="window.location.reload()">Clear all</button>
+        </div>
+        <div class="flex-child blue">
+            <h2 style="color: white">UTM Output</h2>
+            <div class="parent">
+                <div class="flex-utm1">URL query check</div>
+                <div class="flex-utm2">
+                    <p id="utmcampQuery"></p>
+                </div>
+                <div class="flex-utm1">utm_id=</div>
+                <div class="flex-utm2"><img src="/img/icon-lock.png" class="lock">
+                    <p class="locked">cstudies</p>
+                </div>
+                <div class="flex-utm1">utm_campaign=</div>
+                <div class="flex-utm2">
+                    <p id="utmcampProgram"></p>
+                </div>
+                <div class="flex-utm1">utm_source=</div>
+                <div class="flex-utm2">
+                    <p id="utmcampSource"></p>
+                </div>
+                <div class="flex-utm1">utm_medium=</div>
+                <div class="flex-utm2"><img src="/img/icon-lock.png" class="lock">
+                    <p class="locked">affiliate</p>
+                </div>
+                <div class="flex-utm1">Deployment date</div>
+                <div class="flex-utm2">
+                    <p id="utmcampDate"></p>
+                </div>
+                <div class="flex-utm1">Campaigner subject</div>
+                <div class="flex-utm2">
+                    <p id="utmcampSubject"></p>
+                </div>
+                <div class="flex-utm1">URL anchor check</div>
+                <div class="flex-utm2">
+                    <p id="utmAnchor"></p>
+                </div>
+            </div>
+            <br><br>
+            <input type="text" id="campTracking" name="campTracking"
+                style="max-width: 350px; margin-bottom: 15px!important;">
+            <button onclick="copyIt()" id="btnCopy">Copy Tracking Link</button>
+        </div>
+    </div>
+
+    <script>
+
+        function getProgram(program) {
+            document.getElementById('utmcampProgram').innerText = program.value;
+        }
+
+        function getDate(date) {
+            document.getElementById('utmcampDate').innerText = date.value;
+        }
+
+        function getSource(source) {
+            document.getElementById('utmcampSource').innerText = source.value;
+        }
+
+        function getSubject(subject) {
+            document.getElementById('utmcampSubject').innerText = subject.value.replace(/[.,\/#!$%\^&\*"';:<>@{}=\-_`~()]/g, "").replace(/ /g, '+').toLowerCase();
+        }
+
+        function getUrl(url) {
+            var link = url.value;
+            if (link.includes('?')) {
+                document.getElementById('utmcampQuery').innerText = "&";
+            }
+            else {
+                document.getElementById('utmcampQuery').innerText = "?";
+            }
+
+            if (link.includes('#')) {
+                var anchor = "#" + link.slice(link.indexOf('#') + 1);
+                document.getElementById('utmAnchor').innerText = anchor;
+            }
+            else {
+                document.getElementById('utmAnchor').innerText = "";
+            }
+        }
+
+        function getTracking() {
+            var program = document.getElementById('campProgram').value;
+            var source = document.getElementById('campSource').value;
+            var subject = document.getElementById('campSubject').value.replace(/[.,\/#!$%\^&\*"';:<>@{}=\-_`~()]/g, "").replace(/ /g, '+').toLowerCase();
+            var date = document.getElementById('campDate').value;
+            var url = document.getElementById('campUrl').value;
+            var utm = "utm_id=cstudies&utm_campaign=" + program + "&utm_source=" + source + "&utm_medium=affiliate&utm_content=" + program + "+" + date + "+" + subject;
+            var output = "";
+
+            // check if url contains a query string
+            if (url.includes('?')) {
+                // if yes, extend query string using &
+                output = "&" + utm;
+            }
+            else {
+                // if no, start a query string
+                output = "?" + utm;
+            }
+
+            // check if url contains an anchor.
+            if (url.includes('#')) {
+                // append anchor tag to end
+                output = output + "#" + url.split('#')[1];
+            }
+
+            document.getElementById('campTracking').value = output;
+        }
+
+        function getTrackingUrl() {
+            var program = document.getElementById('campProgram').value;
+            var source = document.getElementById('campSource').value;
+            var subject = document.getElementById('campSubject').value.replace(/[.,\/#!$%\^&\*"';:<>@{}=\-_`~()]/g, "").replace(/ /g, '+').toLowerCase();
+            var date = document.getElementById('campDate').value;
+            var url = document.getElementById('campUrl').value;
+            var utm = "utm_id=cstudies&utm_campaign=" + program + "&utm_source="+ source + "&utm_medium=affiliate&utm_content=" + program + "+" + date + "+" + subject;
+            var output = "";
+
+            // check if url contains a query string
+            if (url.includes('?')) {
+                // if yes, extend query string using &
+                output = "&" + utm;
+            }
+            else {
+                // if no, start a query string
+                output = "?" + utm;
+            }
+
+            // check if url contains an anchor.
+            if (url.includes('#')) {
+                // append anchor tag to end
+                output = output + "#" + url.split('#')[1];
+            }
+
+            document.getElementById('campTracking').value = url.split('#')[0] + output;
+        }
+
+        function copyIt() {
+            let copyutm = document.getElementById("campTracking");
+
+            /* Select the text field */
+            copyutm.select();
+
+            /* Copy the text inside the text field */
+            document.execCommand("copy");
+
+            /* Use below command to access the 
+            value of copied text */
+            console.log(copyutm.value);
+        }
+    </script>
+    <script src="index.js"></script>
+</body>
+
+</html>
