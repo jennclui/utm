@@ -204,33 +204,6 @@
             document.getElementById('campTracking').value = output;
         }
 
-        function getTrackingUrl() {
-            var program = document.getElementById('campProgram').value;
-            var subject = document.getElementById('campSubject').value.replace(/[.,\/#!$%\^&\*"'’;:<>@?{}=\-_`~()]/g, "").replace(/ /g, '+').toLowerCase();
-            var date = document.getElementById('campDate').value;
-            var url = document.getElementById('campUrl').value;
-            var utm = "utm_id=cstudies&utm_campaign=" + program + "&utm_source=campaigner&utm_medium=email&utm_content=" + program + "+" + date + "+" + subject;
-            var output = "";
-
-            // check if url contains a query string
-            if (url.includes('?')) {
-                // if yes, extend query string using &
-                output = "&" + utm;
-            }
-            else {
-                // if no, start a query string
-                output = "?" + utm;
-            }
-
-            // check if url contains an anchor.
-            if (url.includes('#')) {
-                // append anchor tag to end
-                output = output + "#" + url.split('#')[1];
-            }
-
-            document.getElementById('campTracking').value = url.split('#')[0] + output;
-        }
-
         function copyIt() {
             let copyutm = document.getElementById("campTracking");
 
