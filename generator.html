@@ -11,11 +11,11 @@
 
 </head>
 
-<body>
+<body class="gen">
 
     <div class="container">
         <div class="flex-child">
-            <h2>Campaigner utm builder</h2>
+            <h2>UTM Builder</h2>
             <form id="utmBuilder">
                 <label for="program">Select program</label><br>
                 <select oninput="getProgram(this)" name="campProgram" id="campProgram">
@@ -69,6 +69,31 @@
                     <option value="urban+design">Urban Design</option>
                     <option value="vrdm">Vocational Rehabilitation and Disability Management</option>
                 </select><br>
+                <label for="source">Select Source</label>
+                <p class="small-text" style="margin-bottom:0px;">Used to identify a source of delivery.</p>
+                <select oninput="getSource(this)" name="campSource" id="campSource">
+                    <option value="x">Select source from dropdown</option>
+                    <option value="facebook.com">Facebook</option>
+                    <option value="linkedin.com">Linkedin</option>
+                    <option value="instagram.com">Instagram</option>
+                    <option value="twitter.com">X (twitter)</option>
+                    <option value="eventbrite.com">Eventbrite</option>
+                    <option value="cphr">CPHR eblast</option>
+                    <option value="thetyee.ca">The Tyee</option>
+                    <option value="sfu-ss">SFU Student Services</option>
+                    <option value="newsletter">Newsletter (SFU originated)</option>
+                    <option value="INSERT-CUSTOM-SOURCE-HERE">OTHER (manual utm edit required)</option>
+                </select>
+                <label for="medium">Select Medium</label>
+                <p class="small-text" style="margin-bottom:0px;">Used to identify a medium of delivery.</p>
+                <select oninput="getMedium(this)" name="campMedium" id="campMedium">
+                    <option value="x">Select mediun from dropdown</option>
+                    <option value="affiliate">affiliate (delivered by affiliate)</option>
+                    <option value="email">email (sent by cs-marketing)</option>
+                    <option value="paid">paid (paid ad campaigns only)</option>
+                    <option value="social">social (unpaid social media post)</option>
+
+                </select><br>
                 <label for="date">Campaigner deployment date</label><br>
                 <input oninput="getDate(this)" type="date" id="campDate" name="camp-date" value="date"
                     class="sub-text" /><br>
@@ -108,12 +133,12 @@
                     <p id="utmcampProgram"></p>
                 </div>
                 <div class="flex-utm1">utm_source=</div>
-                <div class="flex-utm2"><img src="img/icon-lock.png" class="lock">
-                    <p class="locked">campaigner</p>
+                <div class="flex-utm2">
+                    <p id="utmcampSource"></p>
                 </div>
                 <div class="flex-utm1">utm_medium=</div>
-                <div class="flex-utm2"><img src="img/icon-lock.png" class="lock">
-                    <p class="locked">email</p>
+                <div class="flex-utm2">
+                    <p id="utmcampMedium"></p>
                 </div>
                 <div class="flex-utm1">Campaigner deployment date</div>
                 <div class="flex-utm2">
@@ -143,6 +168,12 @@
 
         function getProgram(program) {
             document.getElementById('utmcampProgram').innerText = program.value;
+        }
+        function getSource(source) {
+            document.getElementById('utmcampSource').innerText = source.value;
+        }
+        function getMedium(medium) {
+            document.getElementById('utmcampMedium').innerText = medium.value;
         }
 
         function getDate(date) {
@@ -182,10 +213,12 @@
 
         function getTracking() {
             var program = document.getElementById('campProgram').value;
+            var source = document.getElementById('campSource').value;
+            var medium = document.getElementById('campMedium').value;
             var subject = document.getElementById('campSubject').value.replace(/[.,\/#!$%\^&\*"'’;:<>@?{}=\-_`~()]/g, "").replace(/ /g, '+').toLowerCase();
             var date = document.getElementById('campDate').value;
             var url = document.getElementById('campUrl').value;
-            var utm = "utm_id=cstudies&utm_campaign=" + program + "&utm_source=campaigner&utm_medium=email&utm_content=" + program + "+" + date + "+" + subject;
+            var utm = "utm_id=cstudies&utm_campaign=" + program + "&utm_source=" + source + "&utm_medium=" + medium + "&utm_content=" + program + "+" + date + "+" + subject;
             var output = "";
 
             // check if url contains a query string
@@ -210,10 +243,12 @@
 
         function getTrackingUrl() {
             var program = document.getElementById('campProgram').value;
+            var source = document.getElementById('campSource').value;
+            var medium = document.getElementById('campMedium').value;
             var subject = document.getElementById('campSubject').value.replace(/[.,\/#!$%\^&\*"'’;:<>@?{}=\-_`~()]/g, "").replace(/ /g, '+').toLowerCase();
             var date = document.getElementById('campDate').value;
             var url = document.getElementById('campUrl').value;
-            var utm = "utm_id=cstudies&utm_campaign=" + program + "&utm_source=campaigner&utm_medium=email&utm_content=" + program + "+" + date + "+" + subject;
+            var utm = "utm_id=cstudies&utm_campaign=" + program + "&utm_source=" + source + "&utm_medium=" + medium + "&utm_content=" + program + "+" + date + "+" + subject;
             var output = "";
 
             // check if url contains a query string
