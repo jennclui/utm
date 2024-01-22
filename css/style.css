@@ -35,14 +35,32 @@ p.locked {
     display: inline ;
 }
 
-.container {
-    background: white;
+.container, .tabs {
     display: flex;
     max-width: 950px;
-    margin: 50px auto 10px auto;
+    margin: 0px auto;
 }
 
-.flex-child {
+.container {
+    background-color: white;
+}
+
+.flex-tab {
+    flex: 1;
+    max-width: 200px;
+    font-size: 20px;
+}
+
+.flex-tab a {
+    color: rgb(68, 68, 68);
+    text-decoration: none;
+}
+.flex-tab a:hover {
+    color: rgb(153, 40, 40);
+    text-decoration:underline;
+}
+
+.flex-child{
     flex: 1;
     padding: 20px;
 }  
