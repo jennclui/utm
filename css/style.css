@@ -88,6 +88,10 @@ p.locked {
     background-color: #2CA5D8;
 }
 
+.teal {
+    background-color: #22a6b3;
+}
+
 input {
     margin:4px 0px 40px 0px;
     width: 100%;
