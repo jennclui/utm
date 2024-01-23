@@ -81,12 +81,20 @@
                     <option value="instagram.com">Instagram</option>
                     <option value="twitter.com">X (twitter)</option>
                     <option value="eventbrite.com">Eventbrite</option>
-                    <option value="cphr">CPHR eblast</option>
+                    <option value="cphr">CPHR e-blast</option>
                     <option value="thetyee.ca">The Tyee</option>
+                    <option value="brochure">brochure (QR code)</option>
+                    <option value="postcard">Postcard (QR code)</option>
+                    <option value="sfu-ss">SFU Alumni</option>
                     <option value="sfu-ss">SFU Student Services</option>
-                    <option value="newsletter">Newsletter (SFU originated)</option>
-                    <option value="INSERT-CUSTOM-SOURCE-HERE">OTHER (manual utm edit required)</option>
+                    <option value="sfu-ss">SFU Newsletter</option>
+                    <option value="other">OTHER (manual entry)</option>
                 </select>
+                <div id="otherSource">
+                <label for="customSource">Enter custom source</label><br>
+                <input oninput="getCustomSource(this)" type="text" id="customSource" name="customSource" class="sub-text"  style="width: 380px;"><br>
+                <p class="small-text">You selected "Other" as utm source. Include .com or .ca if a website.<br>All lowercase, no spaces, no special characters, no punctuation</p>
+                </div>
                 <label for="medium">Select Medium</label>
                 <p class="small-text" style="margin-bottom:0px;">Used to identify a medium of delivery.</p>
                 <select oninput="getMedium(this)" name="campMedium" id="campMedium">
@@ -94,14 +102,17 @@
                     <option value="affiliate">affiliate (delivered by affiliate)</option>
                     <option value="email">email (sent by cs-marketing)</option>
                     <option value="paid">paid (paid ad campaigns only)</option>
+                    <option value="print">print (QR code)</option>
+                    <option value="referral">referral</option>
                     <option value="social">social (unpaid social media post)</option>
+                    <option value="website">website</option>
 
                 </select><br>
-                <label for="date">Campaigner deployment date</label><br>
+                <label for="date">Deployment date</label><br>
                 <input oninput="getDate(this)" type="date" id="campDate" name="camp-date" value="date"
                     class="sub-text" /><br>
                 <p class="small-text">Click calendar icon to the right for date picker.</p>
-                <label for="suject">Campaigner email subject</label><br>
+                <label for="suject">Campaign subject or webpage name</label><br>
                 <input oninput="getSubject(this)" type="text" id="campSubject" name="campSubject" class="sub-text"><br>
                 <p class="small-text">No accented vowels. Replace with non-accented equivalent.</p>
                 <label for="eblink">Is the URL a Eventbrite affiliate link</label><a
@@ -143,11 +154,11 @@
                 <div class="flex-utm2">
                     <p id="utmcampMedium"></p>
                 </div>
-                <div class="flex-utm1">Campaigner deployment date</div>
+                <div class="flex-utm1">Deployment date</div>
                 <div class="flex-utm2">
                     <p id="utmcampDate"></p>
                 </div>
-                <div class="flex-utm1">Campaigner email subject</div>
+                <div class="flex-utm1">Campaign subject or page name</div>
                 <div class="flex-utm2">
                     <p id="utmcampSubject"></p>
                 </div>
@@ -171,9 +182,28 @@
         function getProgram(program) {
             document.getElementById('utmcampProgram').innerText = program.value;
         }
+
         function getSource(source) {
-            document.getElementById('utmcampSource').innerText = source.value;
+            var answer = source.value;
+            
+            if (answer == 'other') {
+                document.getElementById('otherSource').style.display = 'block';
+            }
+            else {
+                document.getElementById('otherSource').style.display = 'none';
+                document.getElementById('utmcampSource').innerText = source.value;
+            }
         }
+
+        function getCustomSource(source) {
+            document.getElementById('utmcampSource').innerText = source.value.replace(/[.,\/#!$%\^&\*"'’;:<>@?{}=\-_`~()]/g, "").replace(/ /g, '+').toLowerCase();
+        }
+
+        // function getSource(source) {
+        //         document.getElementById('utmcampSource').innerText = source.value;
+        // }
+
+
         function getMedium(medium) {
             document.getElementById('utmcampMedium').innerText = medium.value;
         }
@@ -215,7 +245,7 @@
 
         function getTracking() {
             var program = document.getElementById('campProgram').value;
-            var source = document.getElementById('campSource').value;
+            var source = document.getElementById('utmcampSource').innerText;
             var medium = document.getElementById('campMedium').value;
             var subject = document.getElementById('campSubject').value.replace(/[.,\/#!$%\^&\*"'’;:<>@?{}=\-_`~()]/g, "").replace(/ /g, '+').toLowerCase();
             var date = document.getElementById('campDate').value;
@@ -244,7 +274,7 @@
 
         function getTrackingUrl() {
             var program = document.getElementById('campProgram').value;
-            var source = document.getElementById('campSource').value;
+            var source = document.getElementById('utmcampSource').innerText;
             var medium = document.getElementById('campMedium').value;
             var subject = document.getElementById('campSubject').value.replace(/[.,\/#!$%\^&\*"'’;:<>@?{}=\-_`~()]/g, "").replace(/ /g, '+').toLowerCase();
             var date = document.getElementById('campDate').value;

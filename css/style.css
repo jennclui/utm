@@ -125,6 +125,12 @@ select {
     width: 100%;
 }
 
+#otherSource {
+    padding-left: 20px; 
+    border-left: #ccc solid 1px; 
+    display: none;
+}
+
 option {
     color: red;
 }
