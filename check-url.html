@@ -20,8 +20,7 @@
   <p id="resultParagraph">Modified URL: </p>
   <p id="ga4Paragraph">GA4 tracking: </p>
 </div>
-
-  <script>
+ <script>
     function modifyURL() {
       // Get the input value
       var urlInput = document.getElementById('urlInput').value;
@@ -44,11 +43,6 @@
             // Update the result paragraph
             var resultParagraph = document.getElementById('resultParagraph');
             resultParagraph.textContent = 'URL: ' + modifiedURL;
-
-            // Display the removed part
-            var ga4Paragraph = document.getElementById('ga4Paragraph');
-            ga4Paragraph.textContent = 'GA4 tracking: ' + substringToRemove;
-
             alert('URL modified and copied to clipboard:\n' + modifiedURL);
           })
           .catch(function(err) {
