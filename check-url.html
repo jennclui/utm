@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="/css/url-check.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <div class="container">
+        <h2>URL Checker</h2>
+        <p>Removes GA4 cross-domain tracking extension from URL for safe sharing.<br>Paste URL in field below and click "Go".</p>
+  <input type="text" id="urlInput" placeholder="Enter URL...">
+  <button id="modifyButton" onclick="modifyURL()">GO</button>
+  <p id="copy">The Modified URL will automatically be copied to your clipboard and ready to be pasted</p>
+
+  <p id="resultParagraph">Modified URL: </p>
+  <p id="ga4Paragraph">GA4 tracking: </p>
+</div>
+<!-- <script>
+    function modifyURL() {
+      // Get the input value
+      var urlInput = document.getElementById('urlInput').value;
+
+      // Check if the URL contains "&_gl="
+      var index = urlInput.indexOf("&_gl=");
+      if (index !== -1) {
+        // Remove "&_gl" and all text after it
+        var modifiedURL = urlInput.substring(0, index);
+        
+        // Copy the modified URL to the clipboard
+        navigator.clipboard.writeText(modifiedURL)
+          .then(function() {
+            // Update the result paragraph
+            var resultParagraph = document.getElementById('resultParagraph');
+            resultParagraph.textContent = 'URL: ' + modifiedURL;
+            
+            // Extract and display the removed part
+            var removedPart = urlInput.substring(index);
+            var ga4Paragraph = document.getElementById('ga4Paragraph');
+            ga4Paragraph.textContent = 'GA4 tracking: ' + removedPart;
+
+            alert('URL modified and copied to clipboard:\n' + modifiedURL);
+          })
+          .catch(function(err) {
+            console.error('Error copying to clipboard: ', err);
+          });
+      } else {
+        // If URL does not contain "&_gl=", update paragraphs accordingly
+        var resultParagraph = document.getElementById('resultParagraph');
+        resultParagraph.textContent = 'URL: ' + urlInput;
+
+        var ga4Paragraph = document.getElementById('ga4Paragraph');
+        ga4Paragraph.textContent = 'GA4 tracking: None.';
+
+        alert('URL does not contain "&_gl=", original URL copied to clipboard:\n' + urlInput);
+      }
+    }
+  </script> -->
+
+  <script>
+    function modifyURL() {
+      // Get the input value
+      var urlInput = document.getElementById('urlInput').value;
+
+      // Check if the URL contains "&_gl="
+      var index = urlInput.indexOf("&_gl=");
+      if (index !== -1) {
+        // Find the next "&" after "&_gl="
+        var nextAmpersandIndex = urlInput.indexOf("&", index + 1);
+
+        // Determine the substring to remove
+        var substringToRemove = (nextAmpersandIndex !== -1) ? urlInput.substring(index, nextAmpersandIndex + 1) : urlInput.substring(index);
+
+        // Remove the substring
+        var modifiedURL = urlInput.replace(substringToRemove, '');
+
+        // Copy the modified URL to the clipboard
+        navigator.clipboard.writeText(modifiedURL)
+          .then(function() {
+            // Update the result paragraph
+            var resultParagraph = document.getElementById('resultParagraph');
+            resultParagraph.textContent = 'URL: ' + modifiedURL;
+
+            // Display the removed part
+            var ga4Paragraph = document.getElementById('ga4Paragraph');
+            ga4Paragraph.textContent = 'GA4 tracking: ' + substringToRemove;
+
+            alert('URL modified and copied to clipboard:\n' + modifiedURL);
+          })
+          .catch(function(err) {
+            console.error('Error copying to clipboard: ', err);
+          });
+      } else {
+        // If URL does not contain "&_gl=", update paragraphs accordingly
+        var resultParagraph = document.getElementById('resultParagraph');
+        resultParagraph.textContent = 'URL: ' + urlInput;
+
+        var ga4Paragraph = document.getElementById('ga4Paragraph');
+        ga4Paragraph.textContent = 'GA4 tracking: None.';
+
+        alert('URL does not contain GA4 cross-domain tracking, original URL copied to clipboard:\n' + urlInput);
+      }
+    }
+  </script>
+  </body>
+</html>
